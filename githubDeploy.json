@@ -41,10 +41,6 @@
         "1",
         "2"
       ]
-    },
-    "gatewayToApiAppSecret": {
-      "defaultValue": "QXp1cmVNTEFQSUFwcA==",
-      "type": "securestring"
     }
   },
   "variables": {
