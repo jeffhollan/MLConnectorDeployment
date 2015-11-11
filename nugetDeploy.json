@@ -103,7 +103,7 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2015-04-01",
-            "name": "[concat(parameters('sitePrefix'),'AzureMLConnector')]",
+            "name": "[concat(parameters('sitePrefix'),'AzureMLAPI')]",
             "location": "[resourceGroup().location]",
             "kind": "apiApp",
             "tags": {
@@ -115,7 +115,7 @@
                     "apiVersion": "2015-02-01",
                     "name": "AzureML.LogicApp.Connector",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLConnector'))]"
+                        "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLAPI'))]"
                     ],
                     "properties": {
                         "type": "WebRoot",
@@ -127,10 +127,10 @@
                     "apiVersion": "2015-01-01",
                     "name": "Microsoft.Resources/apiApp",
                     "dependsOn": [
-                        "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLConnector'))]"
+                        "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLAPI'))]"
                     ],
                     "properties": {
-                        "targetId": "[resourceId('Microsoft.AppService/apiapps', concat(parameters('sitePrefix'),'AzureMLConnector'))]"
+                        "targetId": "[resourceId('Microsoft.AppService/apiapps', concat(parameters('sitePrefix'),'AzureMLAPI'))]"
                     }
                 }
             ],
@@ -145,7 +145,7 @@
                     "appSettings": [
                         {
                             "name": "EMA_MicroserviceId",
-                            "value": "[concat(parameters('sitePrefix'),'AzureMLConnector')]"
+                            "value": "[concat(parameters('sitePrefix'),'AzureMLAPI')]"
                         },
                         {
                             "name": "EMA_Secret",
@@ -170,7 +170,7 @@
         {
             "type": "Microsoft.AppService/apiapps",
             "apiVersion": "2015-03-01-preview",
-            "name": "[concat(parameters('sitePrefix'),'AzureMLConnector')]",
+            "name": "[concat(parameters('sitePrefix'),'AzureMLAPI')]",
             "location": "[resourceGroup().location]",
             "resources": [
                 {
@@ -178,23 +178,23 @@
                     "apiVersion": "2015-01-01",
                     "name": "Microsoft.Resources/apiAppSite",
                     "dependsOn": [
-                        "[resourceId('Microsoft.AppService/apiapps', concat(parameters('sitePrefix'),'AzureMLConnector'))]"
+                        "[resourceId('Microsoft.AppService/apiapps', concat(parameters('sitePrefix'),'AzureMLAPI'))]"
                     ],
                     "properties": {
-                        "targetId": "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLConnector'))]"
+                        "targetId": "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLAPI'))]"
                     }
                 }
             ],
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites/siteextensions', concat(parameters('sitePrefix'),'AzureMLConnector'), 'AzureMLConnector')]"
+                "[resourceId('Microsoft.Web/sites/siteextensions', concat(parameters('sitePrefix'),'AzureMLAPI'), 'AzureMLAPI')]"
             ],
             "properties": {
                 "package": {
-                    "id": "AzureMLConnector"
+                    "id": "AzureMLAPI"
                 },
                 "accessLevel": "PublicAnonymous",
                 "host": {
-                    "resourceName": "[concat(parameters('sitePrefix'),'AzureMLConnector')]"
+                    "resourceName": "[concat(parameters('sitePrefix'),'AzureMLAPI')]"
                 },
                 "gateway": {
                     "resourceName": "[concat(parameters('sitePrefix'),'gateway')]"
