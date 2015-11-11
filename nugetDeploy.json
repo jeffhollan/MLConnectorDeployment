@@ -177,7 +177,7 @@
             ],
             "properties": {
                 "package": {
-                    "id": "AzureML.LogicApp.Connector"
+                    "id": "AzureMLAPI"
                 },
                 "accessLevel": "PublicAnonymous",
                 "host": {
