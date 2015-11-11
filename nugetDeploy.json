@@ -113,7 +113,7 @@
                 {
                     "type": "siteextensions",
                     "apiVersion": "2015-02-01",
-                    "name": "AzureMLConnector",
+                    "name": "AzureML.LogicApp.Connector",
                     "dependsOn": [
                         "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'AzureMLConnector'))]"
                     ],
