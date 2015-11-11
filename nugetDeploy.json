@@ -80,15 +80,6 @@
                     "properties": {
                         "targetId": "[resourceId('Microsoft.Web/sites', concat(parameters('sitePrefix'),'gateway'))]"
                     }
-                },
-                {
-                    "type": "tokens",
-                    "apiVersion": "2015-03-01-preview",
-                    "location": "[resourceGroup().location]",
-                    "name": "AlertLogicApp",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.AppService/gateways', concat(parameters('sitePrefix'),'gateway'))]"
-                    ]
                 }
             ],
             "dependsOn": [
@@ -158,10 +149,6 @@
                         {
                             "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
                             "value": "1"
-                        },
-                        {
-                            "name": "AutoResponse",
-                            "value": "true"
                         }
                     ]
                 }
@@ -186,11 +173,11 @@
                 }
             ],
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites/siteextensions', concat(parameters('sitePrefix'),'AzureMLAPI'), 'AzureMLAPI')]"
+                "[resourceId('Microsoft.Web/sites/siteextensions', concat(parameters('sitePrefix'),'AzureMLAPI'), 'AzureML.LogicApp.Connector')]"
             ],
             "properties": {
                 "package": {
-                    "id": "AzureMLAPI"
+                    "id": "AzureML.LogicApp.Connector"
                 },
                 "accessLevel": "PublicAnonymous",
                 "host": {
