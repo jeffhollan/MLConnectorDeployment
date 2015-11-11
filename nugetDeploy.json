@@ -107,7 +107,7 @@
             "location": "[resourceGroup().location]",
             "kind": "apiApp",
             "tags": {
-                "packageId": "AzureMLConnector"
+                "packageId": "AzureML.LogicApp.Connector"
             },
             "resources": [
                 {
